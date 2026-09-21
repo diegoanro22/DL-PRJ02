@@ -1,0 +1,19 @@
+# Continuacion de ppo_01 con lr y clip_range constantes (IT-04b).
+# PPO Atari. Base RL-Zoo, pero n_envs=16 MEDIDO en esta maquina:
+# 8 envs = 1977 FPS, 16 envs = 4321 FPS (2.2x). Ver PLAN.md §6.
+algo: ppo
+n_envs: 16
+total_timesteps: 60_000_000
+eval_cada: 2_000_000
+save_cada: 5_000_000
+politica: CnnPolicy
+hiperparametros:
+  n_steps: 128
+  batch_size: 256
+  n_epochs: 4
+  learning_rate: 1.0e-4   # el schedule de ppo_01 llegaba a 0 en 100M
+  clip_range: 0.1
+  ent_coef: 0.01
+  vf_coef: 0.5
+  gamma: 0.99
+  gae_lambda: 0.95

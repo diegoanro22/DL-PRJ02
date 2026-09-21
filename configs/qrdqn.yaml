@@ -1,0 +1,23 @@
+# QRDQN Atari (sb3-contrib).
+algo: qrdqn
+n_envs: 1
+total_timesteps: 25_000_000
+eval_cada: 500_000
+save_cada: 1_000_000
+politica: CnnPolicy
+hiperparametros:
+  buffer_size: 100_000
+  learning_rate: 1.0e-4
+  batch_size: 32
+  learning_starts: 100_000
+  target_update_interval: 1_000
+  train_freq: 4
+  gradient_steps: 1
+  exploration_fraction: 0.025
+  exploration_final_eps: 0.01
+  optimize_memory_usage: true
+  replay_buffer_kwargs:
+    # SB3 no acepta optimize_memory_usage junto con esto en true.
+    handle_timeout_termination: false
+  policy_kwargs:
+    n_quantiles: 200
