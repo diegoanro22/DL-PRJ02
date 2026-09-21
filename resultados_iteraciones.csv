@@ -1,0 +1,7 @@
+id,cambio,algoritmo,pasos_entrenamiento,horas,eval_media,eval_std,eval_mediana,eval_max,eval_min,max_de_5,notas
+IT-00,baseline sin entrenamiento,aleatorio,0,0,166.5,102.8,175.0,380,5,285.9,10 episodios env de evaluacion
+IT-01,baseline sin entrenamiento,regla_simple,0,0,244.5,81.3,235.0,380,115,338.4,10 episodios env de evaluacion
+IT-02,"16 envs, lr lineal 2.5e-4, 100M pasos",PPO,100000000,,2868.0,83.9,2830.0,3035,2810,,mejor eval durante entrenamiento: 2981
+IT-03,"off-policy distribucional, buffer 100k, 25M pasos",QRDQN,25000000,,1088.0,529.8,1175.0,1975,540,,mejor eval durante entrenamiento: 1277
+IT-04a,continuacion desde 100M (INVALIDA: el config se ignoro),PPO,160001792,,2829.0,8.6,2830.0,2840,2815,,"bug de resume: lr real 9.4e-5 -> 2.8e-9, clip -> 1.1e-6. No midio lo que decia."
+IT-04b,"continuacion desde 100M, lr=1e-4 y clip=0.1 CONSTANTES",PPO,160001792,,2853.0,81.6,2815.0,3015,2795,,"30 evals, media 2821+-110. vs ppo_01: -45 pts, permutacion p=0.311 -> sin diferencia. Confirma convergencia."

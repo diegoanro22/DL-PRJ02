@@ -1,0 +1,39 @@
+# Configuracion COMPLETA para reproducir la evaluacion del agente final.
+# SB3 no guarda el stack de wrappers dentro del .zip, solo los espacios de
+# observacion y accion. Sin este archivo no hay forma de reconstruir el entorno.
+agente:
+  archivo: agente_final.zip
+  algoritmo: ppo
+  politica: CnnPolicy
+  origen: ppo_01 / paso_95000000_steps.zip
+  seleccionado_por: embudo 22 checkpoints x10 eps -> 5 finalistas x30 eps
+  resultado_30_episodios:
+    media: 2866
+    std: 87
+    mediana: 2835
+    max: 3035
+    min: 2765
+    e_max_de_5: 2974
+
+entorno:
+  id: ALE/SpaceInvaders-v5
+  kwargs_ale:
+    frameskip: 1              # v5 trae 4 de fabrica; en 1 para no duplicar el salto
+    repeat_action_probability: 0.25   # sticky actions, default de v5
+  preprocesamiento:           # gymnasium.wrappers.AtariPreprocessing
+    noop_max: 30
+    frame_skip: 4
+    screen_size: 84
+    grayscale_obs: true
+    scale_obs: false
+    terminal_on_life_loss: false   # en evaluacion el episodio son las 3 vidas
+  fire_reset: true            # replica FireResetEnv de SB3 (2 pasos: accion 1 y 2)
+  frame_stack:
+    n: 4
+    padding_type: zero        # replica VecFrameStack de SB3
+  clip_reward: false          # el puntaje se reporta crudo
+  max_steps: 27000            # 108000 frames
+
+evaluacion:
+  deterministic: true
+  observacion_resultante: [4, 84, 84]  # uint8
