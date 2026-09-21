@@ -1,0 +1,60 @@
+# Proyecto 2 - Space Invaders. Requiere Python 3.12
+# (el 3.14 del sistema no tiene wheels de torch/SB3).
+#
+# IMPORTANTE: torch va en un paso APARTE, desde el indice de PyTorch.
+# No usar --extra-index-url aqui: uv buscaria TODOS los paquetes en ese
+# indice primero y falla al resolver numpy.
+#
+#   uv venv --python 3.12 .venv
+#   uv pip install --python .venv/bin/python torch==2.11.0+cu128 --index-url https://download.pytorch.org/whl/cu128
+#   uv pip install --python .venv/bin/python -r requirements.txt
+
+absl-py==2.5.0
+ale-py==0.12.1
+cloudpickle==3.1.2
+contourpy==1.4.0
+cycler==0.12.1
+decorator==5.3.1
+farama-notifications==0.0.6
+filelock==3.32.3
+fonttools==4.65.0
+fsspec==2026.7.0
+grpcio==1.84.0
+gymnasium==1.3.0
+imageio==2.37.4
+imageio-ffmpeg==0.6.0
+jinja2==3.1.6
+kiwisolver==1.5.1
+markdown==3.10.3
+markdown-it-py==4.2.0
+markupsafe==3.0.3
+matplotlib==3.11.2
+mdurl==0.1.2
+moviepy==2.2.1
+mpmath==1.3.0
+networkx==3.6.1
+numpy==2.5.3
+opencv-python==5.0.0.93
+packaging==26.3
+pandas==3.0.6
+pillow==11.3.0
+proglog==0.1.12
+protobuf==7.36.2
+psutil==7.2.2
+pygame-ce==2.5.8
+pygments==2.21.0
+pyparsing==3.3.2
+python-dateutil==2.9.0.post0
+python-dotenv==1.2.3
+pyyaml==6.0.3
+rich==15.0.0
+sb3-contrib==2.9.0
+seaborn==0.13.2
+six==1.17.0
+stable-baselines3==2.9.0
+sympy==1.14.0
+tensorboard==2.21.0
+tensorboard-data-server==0.7.2
+tqdm==4.70.1
+typing-extensions==4.16.0
+werkzeug==3.1.8
