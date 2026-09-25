@@ -15,5 +15,11 @@
   "min": 2830.0,
   "std": 80.52328855678958,
   "mediana": 2835.0,
-  "videos": []
+  "videos": [
+    "/home/r0sv/Documents/Brain/uni/Deep-Learning/DL-PRJ02/videos/agente_final-episode-0.mp4",
+    "/home/r0sv/Documents/Brain/uni/Deep-Learning/DL-PRJ02/videos/agente_final-episode-1.mp4",
+    "/home/r0sv/Documents/Brain/uni/Deep-Learning/DL-PRJ02/videos/agente_final-episode-2.mp4",
+    "/home/r0sv/Documents/Brain/uni/Deep-Learning/DL-PRJ02/videos/agente_final-episode-3.mp4",
+    "/home/r0sv/Documents/Brain/uni/Deep-Learning/DL-PRJ02/videos/agente_final-episode-4.mp4"
+  ]
 }
